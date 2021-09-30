@@ -1,0 +1,63 @@
+.left-bar {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    background-color: rgb(177, 177, 177);
+  }
+  .forecast-container {
+    height: 100vh;
+    background-color: rgb(177, 177, 177);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-right: 30px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .forecast-container::-webkit-scrollbar {
+    display: none;
+  }
+  h1 {
+    padding: 1rem 0 0 1rem;
+    margin: 0;
+  }
+  
+  h2 {
+    padding-left: 1rem;
+    margin: 0;
+    font-weight: 400;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+  }
+  
+  ul li .day {
+    font-size: 24px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .forecast-container {
+      width: 100vw;
+      background-color: rgb(177, 177, 177);
+      height: unset;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding-right: 0px;
+    }
+    ul {
+      flex-direction: row;
+      overflow-y: hidden;
+      overflow-x: scroll;
+    }
+  }

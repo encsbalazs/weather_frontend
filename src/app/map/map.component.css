@@ -1,0 +1,88 @@
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    height: 100%;
+  }
+  
+  #map {
+    height: 100%;
+  }
+/*
+  .leaflet-popup-content-wrapper{
+   background-color: gray;
+ }
+ */
+.leaflet-popup-content-wrapper{
+  background-color: gray;
+}
+.left-bar {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  background-color: rgb(177, 177, 177);
+}
+.daily_weather-container {
+  height: 100vh;
+  background-color: rgb(177, 177, 177);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-right: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.daily_weather-container::-webkit-scrollbar {
+  display: none;
+}
+h1 {
+  padding: 1rem 0 0 1rem;
+  margin: 0;
+}
+
+h2 {
+  padding-left: 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+ul li .day {
+  font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .daily_weather-container {
+    width: 100vw;
+    background-color: rgb(177, 177, 177);
+    height: unset;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-right: 0px;
+  }
+  ul {
+    flex-direction: row;
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
+}
