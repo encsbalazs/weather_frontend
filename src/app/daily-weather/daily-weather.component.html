@@ -3,17 +3,6 @@
       <h1>{{ "asd"}}</h1>
       <h2>7 days forecast</h2>
       <ul class="scrolling-wrapper">
-        <li *ngFor="let day of daily_weather" class="card">
-          <img
-            src="https://openweathermap.org/img/wn/{{ day.icon }}@2x.png"
-            alt=""
-          />
-          <div>
-            <div class="day">{{ day.day }}</div>
-            <div class="main">{{ day.main.temp }}</div>
-            <div class="temp">{{ day.temp }}°</div>
-          </div>
-        </li>
       </ul>
     </div>
   </div>

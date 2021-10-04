@@ -4,19 +4,21 @@ import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DailyWeatherComponent } from './daily-weather/daily-weather.component';
+import { WeatherServiceService } from './weather-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    DailyWeatherComponent
+    DailyWeatherComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule
     
   ],
-  providers: [],
+  providers: [WeatherServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

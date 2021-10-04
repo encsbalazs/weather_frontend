@@ -1,10 +1,10 @@
 .left-bar {
     position: relative;
     z-index: 1;
-    height: 100vh;
+    height: 10vh;
     background-color: rgb(177, 177, 177);
   }
-  .forecast-container {
+  .daily_weather-container {
     height: 100vh;
     background-color: rgb(177, 177, 177);
     position: absolute;

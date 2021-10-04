@@ -3,7 +3,6 @@ import * as L from 'leaflet';
 import {} from '@angular/google-maps'
 import { HttpClient,HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { DailyWeatherComponent } from '../daily-weather/daily-weather.component';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -12,6 +11,7 @@ import { DailyWeatherComponent } from '../daily-weather/daily-weather.component'
 export class MapComponent implements AfterViewInit {
   private map;
   public address;
+  public location;
   private weather;
   private daily_weather;
   private initMap(): void {
@@ -32,19 +32,7 @@ export class MapComponent implements AfterViewInit {
     this.map.on("dblclick", e => {
 
         let popup
-        const location = e.latlng;
-        
-        this.getDailyWeather(location).subscribe(response => {
-          //console.log(response)
-          this.daily_weather =response
-          ;})
-
-        this.getNominatim(location).subscribe(response => {
-          this.address =response
-          ;})
-        this.getCurrentWeather(location).subscribe(response => {
-          this.weather =response
-          ;})
+        this.location = e.latlng;
         
         const popup_div=document.createElement("div")
 
@@ -100,38 +88,12 @@ export class MapComponent implements AfterViewInit {
   
 
   constructor( 
-    private httpClient:HttpClient) { }
+    private httpClient:HttpClient,
+    //location:Location
+    ) { }
 
   ngAfterViewInit(): void {
   this.initMap();
   }
-  ngAfterChangeInit():void{
-    
-
-  }
-  private getNominatim(location: L.LatLng): Observable<object> {
-    return this.httpClient.get(
-      `https://nominatim.openstreetmap.org/reverse?format=jsonv2&zoom=10&addressdetails=0&lat=${location.lat}&lon=${location.lng}`,
-      {
-        responseType: 'json'
-      });
-    };
-  private getCurrentWeather(location: L.LatLng): Observable<object> {
-      
-      return this.httpClient.get(
-        `https://api.openweathermap.org/data/2.5/weather?appid=c65b011fde5d55966c119c357b470c62&units=metric&zoom=10&addressdetails=0&lat=${location.lat}&lon=${location.lng}`,
-        {
-          responseType: 'json'
-        });
-      };
-  private getDailyWeather(location: L.LatLng): Observable<object> {
-        return this.httpClient.get(
-          `https://api.openweathermap.org/data/2.5/onecall?appid=c65b011fde5d55966c119c357b470c62&units=metric&exclude=weekly&zoom=10&addressdetails=0&lat=${location.lat}&lon=${location.lng}`,
-          {
-            responseType: 'json'
-          });
-        }
-  
-
 }
 
